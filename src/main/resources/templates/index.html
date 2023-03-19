@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <title>Math Lang</title>
+    <script>
+        const n = [[${apps.size}]]
+        function resize() {
+          const height= Math.floor(($(window).height()) / n)
+          const width= $(window).width() - 20
+          //$("td.btn-primary").css("width", width);
+          $("td.btn-primary").css("height", height);
+          $("td.btn-primary").attr("height", height);
+        }
+
+        $(document).ready(function(){
+          resize()
+          $(window).resize(function() {
+              resize()
+          })
+        })
+
+    </script>
+</head>
+<body>
+<center>
+    <table class="btn-group-vertical">
+        <tbody>
+            <tr>
+                <td width="100%" type="button" th:each="app : ${apps}" th:attr="onclick=|location.href = '${app.url}'|" class="btn btn-primary" th:text="${app.text}">
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</center>
+
+</body>
+</html>
