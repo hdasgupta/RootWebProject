@@ -10,7 +10,7 @@
         const n = [[${apps.size}]]
         function resize() {
           const height= Math.floor(($(window).height()) / n)
-          const width= $(window).width() - 20
+          const width= $(window).width()
           //$("td.btn-primary").css("width", width);
           $("td.btn-primary").css("height", height);
           $("td.btn-primary").attr("height", height);
